@@ -1,5 +1,5 @@
 import React from 'react';
-import getAndSetApiData from '../api/testApi';
+import getAndSetApiData from '../api/testApi.ts';
 
 // Test component which fetches data from an API and displays it
 const TestApiCallComponent = () => {
