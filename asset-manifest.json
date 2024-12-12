@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cc-epistemic-enslavement/static/css/main.f855e6bc.css",
+    "main.js": "/cc-epistemic-enslavement/static/js/main.ce7684e4.js",
+    "index.html": "/cc-epistemic-enslavement/index.html",
+    "main.f855e6bc.css.map": "/cc-epistemic-enslavement/static/css/main.f855e6bc.css.map",
+    "main.ce7684e4.js.map": "/cc-epistemic-enslavement/static/js/main.ce7684e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.ce7684e4.js"
+  ]
+}
