@@ -9,7 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route index element={<MainPage />} />
-		<Route path="*/cc-epistemic-enslavement"></Route>
+		<Route path="*/cc-epistemic-enslavement" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
   );
