@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cc-epistemic-enslavement/static/css/main.f855e6bc.css",
-    "main.js": "/cc-epistemic-enslavement/static/js/main.7906491d.js",
+    "main.js": "/cc-epistemic-enslavement/static/js/main.7cc57ecb.js",
     "index.html": "/cc-epistemic-enslavement/index.html",
     "main.f855e6bc.css.map": "/cc-epistemic-enslavement/static/css/main.f855e6bc.css.map",
-    "main.7906491d.js.map": "/cc-epistemic-enslavement/static/js/main.7906491d.js.map"
+    "main.7cc57ecb.js.map": "/cc-epistemic-enslavement/static/js/main.7cc57ecb.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.7906491d.js"
+    "static/js/main.7cc57ecb.js"
   ]
 }
