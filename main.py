@@ -12,7 +12,7 @@ def get_args() -> Namespace:
     Get arguments from command line.
 
     ** input_path: file path (relative to root directory) of csv file containing experimental results.
-    ** output_path: file path (relative to root directory) to which results should be saved. The file should have a csv extension.
+    ** output_path: file path (relative to root directory) to which results should be saved. The file should have a json extension.
 
     :return: Namespace containing arguments
     """
@@ -39,7 +39,7 @@ def main() -> None:
     # Analyse results
     results = analyse_results(dataframe)
 
-    # Save results to csv
+    # Save results to json
     save_to_csv(results, output_path)
 
 

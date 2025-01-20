@@ -1,7 +1,8 @@
 """
 Module containing functionality relating to file utilities.
 """
-from typing import Any
+import json
+from typing import Dict
 
 import pandas as pd
 
@@ -16,14 +17,12 @@ def load_csv(file_path: str) -> pd.DataFrame:
     return pd.read_csv(file_path)
 
 
-# TODO implement this method
-# TODO determine type of results and remove Any import
-def save_to_csv(results: Any, output_path: str) -> None:
+def save_to_csv(results: Dict[str, float], output_path: str) -> None:
     """
-    Save results of experimental analysis to a csv file.
+    Save results of experimental analysis to a json file.
 
     :param results: Results of the experiment
-    :param output_path: Path to a csv file where results should be saved
-    :return:
+    :param output_path: Path to a json file where results should be saved
     """
-    pass
+    with open(output_path, "w") as jsonfile:
+        json.dump(results, jsonfile, indent=4)

@@ -11,4 +11,4 @@ The repository is organized in a simple manner.
 
 ## Run Instructions
 First make sure that input and output variables are properly set up in the [analyse_results.sh](analyse_results.sh) file.
-Then you can run this script after which results will be saved to your specified output file (make sure this is a csv file).
+Then you can run this script after which results will be saved to your specified output file (make sure this is a json file).
