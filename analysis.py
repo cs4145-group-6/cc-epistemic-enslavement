@@ -26,6 +26,7 @@ class SurveySubmission:
     """
     prolific_id: str
     floor_data: List[FloorResult]
+    passed_attention_check: bool
 
 
 @dataclass
@@ -93,7 +94,20 @@ def read_submission(row: (Hashable, Series)) -> SurveySubmission:
 
         floor_data.append(FloorResult(i, time_remaining, evacuation_order, used_ai_advice))
 
-    return SurveySubmission(prolific_id, floor_data)
+    passed_attention_check = False
+    # The attention check is formatted differently for each survey group, try all possibilities
+    try:
+        passed_attention_check = row['Check all the boxes which contain the opposite of "Yes" below.'] == "No\nNo"
+    except KeyError:
+        try:
+            passed_attention_check = row['Please check all boxes containing the opposite of "Yes".'] == "No\nNo"
+        except KeyError:
+            try:
+                passed_attention_check = row['Check all of the boxes containing the opposite of "Yes".'] == "No\nNo"
+            except KeyError:
+                print('Failed to read attention check.')
+
+    return SurveySubmission(prolific_id, floor_data, passed_attention_check)
 
 
 def read_submissions(dataframe: pd.DataFrame) -> List[SurveySubmission]:
@@ -116,6 +130,8 @@ def analyse_results(dataframe: pd.DataFrame) -> Dict[str, float]:
     # TODO implement all metrics and add them to the metrics list
     # TODO explain here and in README what metrics we use to analyse results
     submissions = read_submissions(dataframe)
+    # TODO should we actually leave out submissions which failed attention check?
+    submissions = [submission for submission in submissions if submission.passed_attention_check]
     correct_metric = EvaluationMetric('average correct percentage', calculate_average_correct_score)
     metrics = [correct_metric]
 
@@ -124,5 +140,7 @@ def analyse_results(dataframe: pd.DataFrame) -> Dict[str, float]:
     # Calculate all metrics for the submission
     for metric in metrics:
         results[metric.metric_name] = metric.computation_function(submissions)
+
+    results['participant_count'] = len(submissions)
 
     return results
